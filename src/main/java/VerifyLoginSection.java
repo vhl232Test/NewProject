@@ -1,8 +1,10 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,6 +21,7 @@ public class VerifyLoginSection {
     FileInputStream fileInputStream;
     Properties properties;
     File file;
+    String guruHome = "Guru99 Bank Home Page";
     @BeforeClass
     public void setprop(){
         System.setProperty("webdriver.gecko.driver","D:\\geckodriver-v0.24.0-win64\\geckodriver.exe");
@@ -46,10 +49,16 @@ public class VerifyLoginSection {
         pageLogin.getPasswArea().sendKeys(pass);
         pageLogin.getUserIDArea().sendKeys(userID);
         pageLogin.getLoginButton().click();
+    }
+    @Test
+    public void verifyTitle(){
+        String title = driver.getTitle();
+        Assert.assertEquals(title,guruHome);
 
     }
+
     @AfterClass
     public void closetest(){
-       // driver.close();
+        driver.close();
     }
 }
