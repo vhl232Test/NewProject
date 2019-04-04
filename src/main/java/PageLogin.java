@@ -11,7 +11,7 @@ public class PageLogin {
     @FindBy(name = "password")
     WebElement passwArea;
     @FindBy(name = "btnLogin")
-    WebElement loginButton;
+    private WebElement loginButton;
 
     public WebElement getLoginButton() {
         return loginButton;

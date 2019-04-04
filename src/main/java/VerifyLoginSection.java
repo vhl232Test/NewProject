@@ -54,7 +54,7 @@ public class VerifyLoginSection {
         properties = new Properties();
 
         try {
-            file = new File("src/main/resources/Data.properties");
+            file = new File(util.dataPathForGuru99);
             fileInputStream = new FileInputStream(file);
             properties.load(fileInputStream);
 
