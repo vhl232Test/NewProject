@@ -7,9 +7,9 @@ public class PageLogin {
     WebDriver driver;
 
     @FindBy(name = "uid")
-    WebElement userIDArea;
+    private WebElement userIDArea;
     @FindBy(name = "password")
-    WebElement passwArea;
+    private WebElement passwArea;
     @FindBy(name = "btnLogin")
     private WebElement loginButton;
 
