@@ -77,6 +77,7 @@ public class VerifyLoginSection {
     @Test
     public void verifyTitle(){
         String title = driver.getTitle();
+        System.out.println(title);
         Assert.assertEquals(title,util.guruHomeTitle);
 
     }

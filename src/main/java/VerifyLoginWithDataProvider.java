@@ -23,12 +23,21 @@ public class VerifyLoginWithDataProvider {
         pageLogin.getUserIDArea().sendKeys(userID);
         pageLogin.getPasswArea().sendKeys(password);
         pageLogin.getLoginButton().click();
-        if(util.guruHomeTitle.equalsIgnoreCase(driver.getTitle())){
+
+        String verifyManagePageTitle = driver.getTitle();
+        System.out.println(verifyManagePageTitle);
+
+        if(util.managerPageTitle.equalsIgnoreCase(verifyManagePageTitle)){
             WebElement table = driver.findElement(By.tagName("table"));
             WebElement rowTable = table.findElement(By.xpath("tbody/tr/td/table/tbody/tr[3]/td"));
             String manegeId = rowTable.getText();
             System.out.println(manegeId);
             Assert.assertEquals(manegeId,util.manage_USER_ID);
+        }
+        else {
+            driver.navigate().to(util.urlGuru99);
+            Assert.assertEquals(util.messegeFromAlert,driver.switchTo().alert().getText());
+            driver.switchTo().alert().accept();
         }
     }
 

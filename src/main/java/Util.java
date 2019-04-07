@@ -8,6 +8,8 @@ public class Util {
 
     String dataPathForGuru99 = "src/main/resources/Data.properties";
     String pathEXELFile = "src/main/resources/ForTest.xlsx";
+
+    String managerPageTitle = "Guru99 Bank Manager HomePage";
     String guruHomeTitle = "Guru99 Bank Home Page";
     String messegeFromAlert = "User or Password is not valid";
     String manage_USER_ID = "Manger Id : mngr186603";
