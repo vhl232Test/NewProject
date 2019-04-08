@@ -57,7 +57,7 @@ public class ScreensShots {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        TakeShotClass.takeScreenShot(driver,util.filePathForScreens+System.currentTimeMillis()+".png");
+        TakeShotClass.takeScreenShot(driver,util.filePathForScreens);
 
         Assert.assertEquals(util.messegeFromAlert,driver.switchTo().alert().getText());
         driver.switchTo().alert().accept();
