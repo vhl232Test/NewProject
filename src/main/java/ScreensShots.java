@@ -1,9 +1,9 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -57,7 +57,7 @@ public class ScreensShots {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        TakeShotClass.takeScreenShot(driver,util.filePathForScreens);
+        TakeShotClass.takeScreenShot(driver,util.filePathForScreens+System.currentTimeMillis()+".png");
 
         Assert.assertEquals(util.messegeFromAlert,driver.switchTo().alert().getText());
         driver.switchTo().alert().accept();
@@ -99,5 +99,10 @@ public class ScreensShots {
 
         Assert.assertEquals(util.messegeFromAlert,driver.switchTo().alert().getText());
         driver.switchTo().alert().accept();
+    }
+
+    @AfterClass
+    public void close(){
+        driver.quit();
     }
 }

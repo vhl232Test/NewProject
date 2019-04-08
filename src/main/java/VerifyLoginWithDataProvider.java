@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -70,6 +71,11 @@ public class VerifyLoginWithDataProvider {
 
         Assert.assertEquals(util.messegeFromAlert,driver.switchTo().alert().getText());
         driver.switchTo().alert().accept();
+    }
+
+    @AfterClass
+    public void close(){
+        driver.quit();
     }
 
 }
