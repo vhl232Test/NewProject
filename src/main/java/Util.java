@@ -8,6 +8,7 @@ public class Util {
 
     String dataPathForGuru99 = "src/main/resources/Data.properties";
     String pathEXELFile = "src/main/resources/ForTest.xlsx";
+    String filePathForScreens = "D:\\ScreenTest\\"+System.currentTimeMillis()+".png";
 
     String managerPageTitle = "Guru99 Bank Manager HomePage";
     String guruHomeTitle = "Guru99 Bank Home Page";
