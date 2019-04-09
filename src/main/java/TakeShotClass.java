@@ -12,7 +12,8 @@ public class TakeShotClass {
         TakesScreenshot screenshot = (TakesScreenshot)driver;
         File fileScren = screenshot.getScreenshotAs(OutputType.FILE);
 
-        File destscreenfile = new File(filePath+System.currentTimeMillis()+".png");
+
+        File destscreenfile = new File(filePath,DateQ.timeScreenShot()+".png");
 
         try {
             FileUtils.copyFile(fileScren,destscreenfile);

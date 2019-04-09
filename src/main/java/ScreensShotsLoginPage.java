@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class ScreensShots {
+public class ScreensShotsLoginPage {
     WebDriver driver;
     Util util = new Util();
     PageLogin pageLogin;
