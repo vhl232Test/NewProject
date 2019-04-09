@@ -9,7 +9,7 @@ public class DateQ {
            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH.mm.ss");
 
            String dateString = format.format( new Date());
-           System.out.println(dateString);
+           //System.out.println(dateString);
            return dateString;
 
        }

@@ -18,22 +18,26 @@ public class ScreensShotsLoginPage {
         driver = new FirefoxDriver();
         pageLogin = new PageLogin(driver);
     }
-    @Test(dataProvider = "dataFor_login_Valid_Data",dataProviderClass = DataProviderClass.class )
+    @Test(priority = 1,dataProvider = "dataFor_login_Valid_Data",dataProviderClass = DataProviderClass.class )
     public void verifyLogin_dataProvider_Valid_Data(String userID,String password){
         driver.navigate().to(util.urlGuru99);
         pageLogin.getUserIDArea().sendKeys(userID);
         pageLogin.getPasswArea().sendKeys(password);
         pageLogin.getLoginButton().click();
 
-        String verifyManagePageTitle = driver.getTitle();
-        System.out.println(verifyManagePageTitle);
+        //String verifyManagePageTitle = driver.getTitle();
+        //System.out.println(verifyManagePageTitle);
 
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        TakeShotClass.takeScreenShot(driver,util.filePathForScreens);
+
+        String nameMathod = new Object(){}.getClass().getEnclosingMethod().getName();
+        //System.out.println(nameMathod);
+
+        TakeShotClass.takeScreenShot(driver,nameMathod,util.filePathForScreens);
 
         WebElement table = driver.findElement(By.tagName("table"));
         WebElement rowTable = table.findElement(By.xpath("tbody/tr/td/table/tbody/tr[3]/td"));
@@ -44,7 +48,7 @@ public class ScreensShotsLoginPage {
 
     }
 
-    @Test(dataProvider = "data_Invalid_UserID",dataProviderClass = DataProviderClass.class)
+    @Test(priority = 2,dataProvider = "data_Invalid_UserID",dataProviderClass = DataProviderClass.class)
     public void verify_login_with_invalid_UserID(String userID,String password){
 
         driver.navigate().to(util.urlGuru99);
@@ -52,18 +56,22 @@ public class ScreensShotsLoginPage {
         pageLogin.getPasswArea().sendKeys(password);
         pageLogin.getLoginButton().click();
 
+        String nameMathod = new Object(){}.getClass().getEnclosingMethod().getName();
+        //System.out.println(nameMathod);
+        TakeShotClass.takeScreenShot(driver,nameMathod,util.filePathForScreens);
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        TakeShotClass.takeScreenShot(driver,util.filePathForScreens);
+
 
         Assert.assertEquals(util.messegeFromAlert,driver.switchTo().alert().getText());
         driver.switchTo().alert().accept();
     }
 
-    @Test(dataProvider = "data_Invalid_Password",dataProviderClass = DataProviderClass.class)
+    @Test(priority = 3,dataProvider = "data_Invalid_Password",dataProviderClass = DataProviderClass.class)
     public void verify_login_with_invalid_Password(String userID,String password){
 
         driver.navigate().to(util.urlGuru99);
@@ -71,18 +79,22 @@ public class ScreensShotsLoginPage {
         pageLogin.getPasswArea().sendKeys(password);
         pageLogin.getLoginButton().click();
 
+        String nameMathod = new Object(){}.getClass().getEnclosingMethod().getName();
+        //System.out.println(nameMathod);
+        TakeShotClass.takeScreenShot(driver,nameMathod,util.filePathForScreens);
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        TakeShotClass.takeScreenShot(driver,util.filePathForScreens);
+
 
         Assert.assertEquals(util.messegeFromAlert,driver.switchTo().alert().getText());
         driver.switchTo().alert().accept();
     }
 
-    @Test(dataProvider = "data_Invalid_UserIDandPassword",dataProviderClass = DataProviderClass.class)
+    @Test(priority = 4,dataProvider = "data_Invalid_UserIDandPassword",dataProviderClass = DataProviderClass.class)
     public void verify_login_with_invalid_UserIDandPassword(String userID,String password){
 
         driver.navigate().to(util.urlGuru99);
@@ -90,12 +102,16 @@ public class ScreensShotsLoginPage {
         pageLogin.getPasswArea().sendKeys(password);
         pageLogin.getLoginButton().click();
 
+        String nameMathod = new Object(){}.getClass().getEnclosingMethod().getName();
+        //System.out.println(nameMathod);
+        TakeShotClass.takeScreenShot(driver,nameMathod,util.filePathForScreens);
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        TakeShotClass.takeScreenShot(driver,util.filePathForScreens);
+
 
         Assert.assertEquals(util.messegeFromAlert,driver.switchTo().alert().getText());
         driver.switchTo().alert().accept();

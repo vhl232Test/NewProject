@@ -7,13 +7,13 @@ import java.io.File;
 import java.io.IOException;
 
 public class TakeShotClass {
-    public static void takeScreenShot(WebDriver driver,String filePath){
+    public static void takeScreenShot(WebDriver driver,String methodName, String filePath){
 
         TakesScreenshot screenshot = (TakesScreenshot)driver;
         File fileScren = screenshot.getScreenshotAs(OutputType.FILE);
 
 
-        File destscreenfile = new File(filePath,DateQ.timeScreenShot()+".png");
+        File destscreenfile = new File(filePath,methodName + " "+DateQ.timeScreenShot()+".png");
 
         try {
             FileUtils.copyFile(fileScren,destscreenfile);
